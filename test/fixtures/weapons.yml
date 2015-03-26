@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  strength: 1
+  zombie_id: 
+
+two:
+  name: MyString
+  strength: 1
+  zombie_id: 
