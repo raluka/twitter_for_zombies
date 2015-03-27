@@ -1,5 +1,5 @@
 <% # list a single tweet %>
 
-<% tweet = Tweet.find(1) %>
-<h1> <%= tweet.status %></h1>
-<p>Posted by <%= link_to tweet.zombie.name, tweet.zombie %></p>
+<%  %>
+<h1> <%= @tweet.status %></h1>
+<p>Posted by <%= link_to @tweet.zombie.name, @tweet.zombie %></p>
