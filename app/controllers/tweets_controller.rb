@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
   end
 
   def new
-
+    @tweet = Tweet.new
   end
 
   def edit
@@ -26,7 +26,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+      redirect_to @tweet
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -45,5 +50,10 @@ class TweetsController < ApplicationController
       flash[:notice] ="Sorry. you can't edit this tweet"
       redirect_to(tweets_path)
     end
+  end
+
+  private
+  def tweet_params
+    params.required(:tweet).permit([:status, :location])
   end
 end
