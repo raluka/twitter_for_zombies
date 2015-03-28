@@ -3,7 +3,23 @@ class TweetsController < ApplicationController
   before_action :check_auth, only:  [:edit, :update, :destroy]
 
   def index
+    if params[:zipcode]
+      @tweets = Tweet.where(zipcode: params[:zipcode])
+    else
+      @tweets = Tweet.all
+    end
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tweets}
+      format.xml { render xml: @tweets}
+    end
+    if params[:name]
+      @zombie = Zombie.where(name: params[:name]).first
+      @tweets = @zombie.tweets
+    else
+      @tweets = Tweet.all
+    end
   end
 
   def show

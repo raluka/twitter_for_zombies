@@ -1,4 +1,4 @@
-class ZombieController < ApplicationController
+class ZombiesController < ApplicationController
 
   before_action :find_zombie
   before_action :has_tweets, only: :show
@@ -42,7 +42,7 @@ class ZombieController < ApplicationController
 
   private
   def zombie_params
-    params.required(:zombie).permit([:name, :graveyard])
+    params.required(:zombies).permit([:name, :graveyard])
   end
 
   def find_zombie

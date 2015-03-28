@@ -3,7 +3,7 @@ class CreateWeapons < ActiveRecord::Migration
     create_table :weapons do |t|
       t.string :name
       t.integer :strength
-      t.references :zombie, index: true, foreign_key: true
+      t.references :zombies, index: true, foreign_key: true
 
       t.timestamps null: false
     end
